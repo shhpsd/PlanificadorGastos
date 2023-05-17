@@ -4,7 +4,6 @@ import Mensaje from "./Mensaje";
 function NuevoPresupuesto({presupuesto,setPresupuesto,setIsValidPresupuesto}) {
   const [mensaje, setMensaje] = useState('');
   const handlePresupuesto = (e) =>{
-
     e.preventDefault();
     if(!presupuesto || presupuesto < 0){
       setMensaje("No es un presupuesto valido")

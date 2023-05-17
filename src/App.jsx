@@ -14,9 +14,7 @@ import IconoNuevoGasto from "./assets/nuevo-gasto.svg";
 function App() {
   
   // const [gastos, setGastos] = useState([]);
-  const [gastos, setGastos] = useState(
-    localStorage.getItem("gastos") ? JSON.parse(localStorage.getItem("gastos")) : 0
-  );
+  const [gastos, setGastos] = useState(localStorage.getItem("gastos") ? JSON.parse(localStorage.getItem("gastos")) : []);
 
   const [presupuesto, setPresupuesto] = useState(JSON.parse(localStorage.getItem("presupuesto") ?? 0));
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);

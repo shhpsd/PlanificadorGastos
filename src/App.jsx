@@ -12,9 +12,11 @@ import { generarId, generarFecha } from "./helpers";
 import IconoNuevoGasto from "./assets/nuevo-gasto.svg";
 
 function App() {
+  
+  // const [gastos, setGastos] = useState([]);
   const [gastos, setGastos] = useState(
     localStorage.getItem("gastos") ? JSON.parse(localStorage.getItem("gastos")) : 0
-  )
+  );
 
   const [presupuesto, setPresupuesto] = useState(JSON.parse(localStorage.getItem("presupuesto") ?? 0));
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false);
@@ -41,7 +43,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("gastos",JSON.stringify(gastos) ?? [])
   },[gastos])
-
   useEffect(() => {
     if(filtro){
       // FILTRAR DATOS POR CATEGORIA
@@ -78,9 +79,7 @@ function App() {
       gasto.id = generarId();
       gasto.fecha = generarFecha(); 
       setGastos([...gastos, gasto]);
-
     }
-
     setAnimarModal(false);
     setTimeout(() => {
       setModal(false);
@@ -110,7 +109,6 @@ function App() {
                 filtro={filtro}
                 setFiltro={setFiltro}
               />
-              
               <ListadoGastos
                 gastos={gastos}
                 setGastoEditar={setGastoEditar}
